@@ -17,6 +17,9 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import java.util.Map;
 
+/**
+ * Filter to meter HTTP API traffic to Revenium's Platform API
+ */
 @Component
 public class MeteringFilter implements Filter {
 
@@ -77,7 +80,9 @@ class MeteringApiCallback implements ApiCallback<Unit> {
 
     @Override
     public void onFailure(ApiException e, int statusCode, Map responseHeaders) {
-        logger.error(String.format("Error while sending metering data: %d", statusCode), e);
+        if (logger.isErrorEnabled()) {
+            logger.error(String.format("Error while sending metering data: %d", statusCode), e);
+        }
     }
 
     @Override

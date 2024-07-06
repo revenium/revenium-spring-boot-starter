@@ -1,8 +1,8 @@
 package io.revenium.metering;
 
 import io.revenium.metering.api.MeteringApi;
-import io.revenium.metering.servlet.spring.annotation.Metered;
-import io.revenium.metering.servlet.spring.aspect.MeteredAspect;
+import io.revenium.metering.spring.Metered;
+import io.revenium.metering.spring.MeteredAspect;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

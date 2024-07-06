@@ -1,1 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.revenium.metering.spring.ReveniumAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.revenium.metering.spring.ReveniumAutoConfiguration
