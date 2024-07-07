@@ -69,10 +69,10 @@ Here's an example of how to use the `@Metered` annotation on a REST controller P
 @PostMapping
 @Metered(
         subscriptionId = "#args[1]",
-        sourceId = "'sentiment-analysis'",
+        sourceId = "'text-summarizer'",
         elements = "{'tokens': #result.tokensConsumed}"
 )
-public SummarizationResponse analyzeSentiment(@RequestBody SummarizationRequest request,
+public SummarizationResponse summarize(@RequestBody SummarizationRequest request,
                                               @RequestHeader("x-api-key") String apiKey) {
     SummarizationResult result = summarizationService.summarize(request.getText());
     SummarizationResponse response = new SummarizationResponse();
@@ -82,4 +82,4 @@ public SummarizationResponse analyzeSentiment(@RequestBody SummarizationRequest 
 }
 ```
 
-This example sends metering data to the Revenium platform when the `analyzeSentiment` method is invoked. The sourceId is statically set to "sentiment-analysis" and the subscriptionId is dynamically set to the second argument of the method. The metering elements are set to a JSON object containing the number of LLM tokens consumed by the method.
+This example sends metering data to the Revenium platform when the `summarize` method is invoked. The sourceId is statically set to "text-summarizer" and the subscriptionId is dynamically set to the second argument of the method. The metering elements are set to a JSON object containing the number of LLM tokens consumed by the method.

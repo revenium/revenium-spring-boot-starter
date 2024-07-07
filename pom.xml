@@ -7,7 +7,14 @@
     <version>1.0.0</version>
     <name>revenium-spring-boot-starter</name>
     <url>https://revenium.io</url>
-
+    <description>A Spring Boot starter for integrating Revenium metering functionality into your applications.
+    </description>
+    <scm>
+        <connection>scm:git:git@github.com:revenium/revenium-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:git@github.com:revenium/revenium-spring-boot-starter.git
+        </developerConnection>
+        <url>https://github.com/revenium/revenium-spring-boot-starter</url>
+    </scm>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -78,6 +85,32 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.7.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
